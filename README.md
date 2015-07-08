@@ -1,5 +1,8 @@
-# openhierarchy
-OpenHierarchy Template project - Configured with Maven and the Spring JPA
+# OpenHierarchy
+
+Read more about OpenHierarchy - http://openhierarchy.org/
+
+## OpenHierarchy Template project - Configured with Maven and the Spring JPA
 
 * Java 1.8, some projects still use 1.6
 * Tomcat 8
