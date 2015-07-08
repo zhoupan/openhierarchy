@@ -9,12 +9,12 @@
 		
 		<!-- ContainerManaged example "jdbc/foo" -->
 		<!-- SystemManaged example "jdbc:mysql://localhost:3306/foo" -->
-		<Url>jdbc:mysql://164.9.214.245:3306/brisa-system</Url>
+		<Url>jdbc:mysql://127.0.0.1:3306/openhierarchy-system</Url>
 		
 		<!-- The settings below are only necessary in SystemManaged mode-->
 		<Driver>com.mysql.jdbc.Driver</Driver>
-		<Username>ohuser</Username>
-		<Password>ohuser</Password>
+		<Username>admin</Username>
+		<Password>admin</Password>
 		<LogAbandoned>true</LogAbandoned>
 		<RemoveAbandoned>true</RemoveAbandoned>
 		<RemoveAbandonedTimeout>30</RemoveAbandonedTimeout>
