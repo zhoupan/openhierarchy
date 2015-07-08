@@ -77,7 +77,7 @@
 	      <span class="icon-bar"></span>
 	      <span class="icon-bar"></span>
 	    </button>
-	    <a class="navbar-brand" href="{/document/requestinfo/contextpath}/">Brisa</a>
+	    <a class="navbar-brand" href="{/document/requestinfo/contextpath}/">Example</a>
 	  </div>
 	  <div class="navbar-collapse collapse">
 	    <ul class="nav navbar-nav">
