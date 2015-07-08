@@ -23,6 +23,6 @@ From the example web project -> src -> main.resources -> jpaContext.xml. Check o
 ### The server
 There is a .zip-file in the example web project -> WebContent -> WEB-INF -> apache-tomcat.zip. Take the server folder you would like to use and place it somewhere local. From the Servers view in Eclipse -> New Server ->  Choose your apache version and click next. Point out the directory of your apache folder. After adding the server, add the example web project to the server by right click the server and choose Add and remove..
 
-Thats, it. Start the server!
+Thats it. Start the server!
 
 
