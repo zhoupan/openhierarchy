@@ -5,14 +5,15 @@ OpenHierarchy Template project - Configured with Maven and the Spring JPA
 * Tomcat 8
 
 ## Get started
-* In Eclipse, from the Git repository view
-* Clone a Git repository
-* Right click Working Directory -> Import Maven Projects...
+* Get Eclipse with Git- and Maven plugin
+* In Eclipse, from the Git repositories view
+* Choose Clone a Git repository
+* Expand the repository after downloaded. Right click Working Directory -> Import Maven Projects...
 
 ## Configurations
 Project is configured using two db configs. One is for the OpenHierarchy system and the other is a project specific one.
 
-### OpenHierarchy
+### OpenHierarchy Database
 From the example web project -> WebContent -> WEB-INF -> openhierarchy-clean.sql.  Use that sql to create the openhierarchy database. Check the name of the database in this sql, default should be openhierarchy-system. Use Heidi SQL för example to set up your db. After you have configured the dabase. Check the configuration file: WebContent -> WEB-INF -> config.xml to confirm that the connection is correct accordin g to your database setup.
 
 ### The project specific Database
