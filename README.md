@@ -1,4 +1,4 @@
-# OpenHierarchy
+# OpenHierarchy 
 
 Read more about OpenHierarchy - http://openhierarchy.org/
 
@@ -14,12 +14,14 @@ To configure the environment, you may use the tools located in the example web p
 ### System variables
 
 Add system variables, for example:
-- JAVA_HOME : <PATH_TO>\jre8
-- MAVEN_HOME : <PATH_TO>\apache-maven-3.3.1
-- CATALINA_HOME : <PATH_TO>\apache-tomcat-8.0.21
+- JAVA_HOME : PATH_TO\jre8
+- MAVEN_HOME : PATH_TO\apache-maven-3.3.1
+- CATALINA_HOME : PATH_TO\apache-tomcat-8.0.21
 
 Edit the system variable Path and add the following:
+```
 %JAVA_HOME%\bin;%MAVEN_HOME%\bin;%CATALINA_HOME%\bin;
+```
 
 ### Database
 
@@ -57,7 +59,7 @@ Default login is admin \ admin.
 
 ## FAQ
 
-#### When I add the example-web project to the server I get the following error "Project facet Java Version 1.8 is not supported."
+##### When I add the example-web project to the server I get the following error "Project facet Java Version 1.8 is not supported."
 Right click the example web project and choose properties. Java Build Path -> Libraries. Click Add library.. and locate the jre8 if installed. Add this library and you´re good to go.
 
 ##### How do I resolve XSL-errors?
