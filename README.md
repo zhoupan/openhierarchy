@@ -45,6 +45,8 @@ Project is configured using two db configs. One is for the OpenHierarchy system 
 ### The OpenHierarchy Database
 From the example web project -> WebContent -> WEB-INF -> openhierarchy-clean.sql.  Use that sql to create the openhierarchy database. Check the name of the database in this sql, default should be openhierarchy-system. You may use Heidi SQL to set up your db. After you have configured the dabase. Check the configuration file: WebContent -> WEB-INF -> config.xml to confirm that the connection is correct accordin g to your database setup.
 
+There is a table named openhierarchy_data_sources, check so that the data source is properly configured.
+
 ### The Project Specific Database
 Start by create a database with a name of your choice.
 From the example web project -> src -> main.resources -> jpaContext.xml. Check out the bean-tag with id "dataSource". Change the properties to match your database.
