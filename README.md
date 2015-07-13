@@ -9,7 +9,7 @@ OpenHierarchy Template project - Configured with Maven and the Spring JPA
 
 ## Environment Configurations
 
-To configure the environment, you may use the tools located in the example web project. WebContent -> WEB-INF -> environment. There you´ll find apache-tomcat, apache-maven, jre, and the STS. Spring Tool Suite(STS)  is a configured eclipse bundle including maven, git, Spring support and more.. Get the latest version from here - https://spring.io/tools
+To configure the environment, you may use the tools located in the example web project. WebContent -> WEB-INF -> environment. There you´ll find apache-tomcat and apache-maven. Use the Spring Tool Suite(STS)  which is a configured eclipse bundle including maven, git, Spring support and more.. Get the latest version here - https://spring.io/tools. You will also need the Java Runtime Environment 8, jre8.
 
 ### System variables
 
@@ -34,8 +34,9 @@ The mysql connector to be used is specified in the example web project´s pom.xm
 ## Get started
 
 * In Eclipse, from the Git repositories view
-* Choose Clone a Git repository
-* Expand the repository after downloaded. Right click Working Directory -> Import Maven Projects...
+* Clone a Git repository...
+* Expand the repository after downloaded
+* Right click Working Directory -> Import Maven Projects...
 
 Project is configured using two db configs. One is for the OpenHierarchy system and the other is a project specific one.
 
@@ -47,7 +48,7 @@ Start by create a database with a name of your choice.
 From the example web project -> src -> main.resources -> jpaContext.xml. Check out the bean-tag with id "dataSource". Change the properties to match your database.
 
 ### The server
-There is a .zip-file in the example web project -> WebContent -> WEB-INF -> environment -> apache-tomcat.zip. Take the server folder you would like to use and place it somewhere local. From the Servers view in Eclipse -> New Server ->  Choose your apache version and click next. Point out the directory of your apache folder. After adding the server, add the example web project to the server by right click the server and choose Add and remove..
+There is a .zip-file in the example web project -> WebContent -> WEB-INF -> environment -> apache-tomcat.zip. Take the server folder you would like to use and place it somewhere local. From the Servers view in Eclipse -> New Server ->  Choose your apache version and click next. Point out the directory of your apache folder. After adding the server, add the example web project to the server by right click the server and then Add and remove..
 
 Configure ports by double click on the server.
 
