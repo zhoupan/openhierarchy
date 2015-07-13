@@ -29,7 +29,7 @@ Edit the system variable Path and add the following:
 Install MySQL, you may get it from here (Choose the developer default installation and setup your MySQL server):
 http://dev.mysql.com/downloads/windows/installer/
 
-I recommend using HeidiSQL as the database environment:
+HeidiSQL is nice to use as the database environment:
 http://www.heidisql.com/download.php
 
 The mysql connector to be used is specified in the example web project´s pom.xml file.
