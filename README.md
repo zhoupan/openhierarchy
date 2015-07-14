@@ -37,7 +37,7 @@ The mysql connector to be used is specified in the example web project´s pom.xm
 ## Get started
 
 * In Eclipse, from the Git repositories view
-* Clone a Git repository...
+* Clone a Git repository... and enter the URL to this repository - https://github.com/icytin/openhierarchy.git
 * Expand the repository after downloaded
 * Right click Working Directory -> Import Maven Projects...
 
