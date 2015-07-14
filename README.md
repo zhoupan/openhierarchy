@@ -2,7 +2,7 @@
 
 Read more about OpenHierarchy - http://openhierarchy.org/
 
-OpenHierarchy Template project - Configured with Maven and the Spring JPA
+OpenHierarchy Template project - Configured with Maven and the Spring Framework
 
 * OpenHierarchy 1.2.5
 * Java 1.8, some projects still use 1.6
@@ -72,8 +72,8 @@ Window -> Preferences -> XML -> XSL -> Validation. Switch all to ignore and clic
 Make sure Tomcat is installed in your solution and configured for that project correctly. Have you added the Server Runtime to the example project? Right click example project -> Properties -> Java Build Path -> Libraries -> Add Library.. -> Server Runtime.
 
 ##### How can I get debug information about the .xml file for the current page?
-For this demo project go to: PATH_TO_YOUR_PROJECT_DIRECTORY/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/demo.oeplatform.org/WEB-INF/module_xmldebug.xml
+For this demo project go to: PATH_TO_YOUR_PROJECT_DIRECTORY/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/example/WEB-INF/module_xmldebug.xml
 
 ##### What about logging runtime errors?
 Look in the same directory as above:
-PATH_TO_YOUR_PROJECT_DIRECTORY\\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\demo.oeplatform.org\WEB-INF
+PATH_TO_YOUR_PROJECT_DIRECTORY\\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\example\WEB-INF
