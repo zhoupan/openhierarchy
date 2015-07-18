@@ -10,7 +10,7 @@
     <input id="modulePath" type="hidden" value="{/document/requestinfo/currentURI}/{/document/module/alias}/"></input>
     
     <h1>Congratulations!</h1>
-    <p>This is an example mopdule</p>
+    <p>This is an example module</p>
     <p class="result">Loading...</p>
     
     <script type="text/javascript" src="{/document/requestinfo/contextpath}/static/f/{/document/module/sectionID}/{/document/module/moduleID}/js/main.js"></script>
