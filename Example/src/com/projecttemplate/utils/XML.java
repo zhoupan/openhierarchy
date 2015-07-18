@@ -12,12 +12,8 @@ import se.unlogic.webutils.http.RequestUtils;
 import se.unlogic.webutils.http.URIParser;
 
 /**
- * Helperclass for building XML
+ * Helper class for building XML
  *
- * Last edit: 2014-09-18
- *
- * @author Andreas Öman, andreas.oman@cgi.com
- * @see <a href="www.cgi.com">www.cgi.com</a>
  */
 public class XML
 {

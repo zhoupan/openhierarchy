@@ -17,7 +17,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
       
       <title>
-      	<xsl:text>Brisa</xsl:text>
+      	<xsl:text>Example project</xsl:text>
       	<xsl:if test="title">
           <xsl:text> - </xsl:text>
           <xsl:value-of select="title" />
@@ -116,7 +116,7 @@
   <xsl:template name="footer">
   	<footer class="footer">
       <div class="container">
-        <p class="text-muted credit">Copyright Brisa® 2015 | Utvecklat i samarbete med <a href="http://www.cgi.se">CGI Sverige AB</a></p>
+        <p class="text-muted credit">Copyright ExampleProject® 2015 | Utvecklat i samarbete med <a href="http://www.cgi.se">CGI Sverige AB</a></p>
       </div>
     </footer>
   </xsl:template>

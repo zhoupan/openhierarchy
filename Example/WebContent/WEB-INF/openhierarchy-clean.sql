@@ -1,12 +1,12 @@
 -- --------------------------------------------------------
--- Host:                         127.0.0.1
--- Server version:               5.5.39 - MySQL Community Server (GPL)
+-- Värd:                         localhost
+-- Server version:               5.6.25-log - MySQL Community Server (GPL)
 -- Server OS:                    Win64
--- HeidiSQL Version:             8.2.0.4675
+-- HeidiSQL Version:             9.2.0.4947
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
@@ -63,7 +63,7 @@ DELETE FROM `ccrecipients`;
 /*!40000 ALTER TABLE `ccrecipients` ENABLE KEYS */;
 
 
--- Dumping structure for table openhierarchy-system.emails
+-- Dumping structure for table example-system.emails
 CREATE TABLE IF NOT EXISTS `emails` (
   `emailID` char(36) NOT NULL,
   `resendCount` int(10) unsigned DEFAULT NULL,
@@ -125,6 +125,21 @@ CREATE TABLE IF NOT EXISTS `openhierarchy_background_module_aliases` (
 DELETE FROM `openhierarchy_background_module_aliases`;
 /*!40000 ALTER TABLE `openhierarchy_background_module_aliases` DISABLE KEYS */;
 /*!40000 ALTER TABLE `openhierarchy_background_module_aliases` ENABLE KEYS */;
+
+
+-- Dumping structure for table openhierarchy-system.openhierarchy_background_module_attributes
+CREATE TABLE IF NOT EXISTS `openhierarchy_background_module_attributes` (
+  `moduleID` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `value` varchar(4096) CHARACTER SET latin1 NOT NULL,
+  PRIMARY KEY (`moduleID`,`name`),
+  CONSTRAINT `FK_openhierarchy_background_module_attributes_1` FOREIGN KEY (`moduleID`) REFERENCES `openhierarchy_background_modules` (`moduleID`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Dumping data for table openhierarchy-system.openhierarchy_background_module_attributes: ~0 rows (approximately)
+DELETE FROM `openhierarchy_background_module_attributes`;
+/*!40000 ALTER TABLE `openhierarchy_background_module_attributes` DISABLE KEYS */;
+/*!40000 ALTER TABLE `openhierarchy_background_module_attributes` ENABLE KEYS */;
 
 
 -- Dumping structure for table openhierarchy-system.openhierarchy_background_module_groups
@@ -210,7 +225,7 @@ CREATE TABLE IF NOT EXISTS `openhierarchy_data_sources` (
   PRIMARY KEY (`dataSourceID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
--- Dumping data for table openhierarchy-system.openhierarchy_data_sources: ~1 rows (approximately)
+-- Dumping data for table openhierarchy-system.openhierarchy_data_sources: ~0 rows (approximately)
 DELETE FROM `openhierarchy_data_sources`;
 /*!40000 ALTER TABLE `openhierarchy_data_sources` DISABLE KEYS */;
 INSERT INTO `openhierarchy_data_sources` (`dataSourceID`, `url`, `type`, `enabled`, `driver`, `username`, `password`, `name`, `logAbandoned`, `removeAbandoned`, `removeTimeout`, `testOnBorrow`, `validationQuery`, `maxActive`, `maxIdle`, `minIdle`, `maxWait`, `defaultCatalog`) VALUES
@@ -253,6 +268,21 @@ CREATE TABLE IF NOT EXISTS `openhierarchy_filter_module_aliases` (
 DELETE FROM `openhierarchy_filter_module_aliases`;
 /*!40000 ALTER TABLE `openhierarchy_filter_module_aliases` DISABLE KEYS */;
 /*!40000 ALTER TABLE `openhierarchy_filter_module_aliases` ENABLE KEYS */;
+
+
+-- Dumping structure for table openhierarchy-system.openhierarchy_filter_module_attributes
+CREATE TABLE IF NOT EXISTS `openhierarchy_filter_module_attributes` (
+  `moduleID` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `value` varchar(4096) CHARACTER SET latin1 NOT NULL,
+  PRIMARY KEY (`moduleID`,`name`),
+  CONSTRAINT `FK_openhierarchy_filter_module_attributes_1` FOREIGN KEY (`moduleID`) REFERENCES `openhierarchy_filter_modules` (`moduleID`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Dumping data for table openhierarchy-system.openhierarchy_filter_module_attributes: ~0 rows (approximately)
+DELETE FROM `openhierarchy_filter_module_attributes`;
+/*!40000 ALTER TABLE `openhierarchy_filter_module_attributes` DISABLE KEYS */;
+/*!40000 ALTER TABLE `openhierarchy_filter_module_attributes` ENABLE KEYS */;
 
 
 -- Dumping structure for table openhierarchy-system.openhierarchy_filter_module_groups
@@ -325,7 +355,7 @@ CREATE TABLE IF NOT EXISTS `openhierarchy_foreground_modules` (
   KEY `FK_modules_2` (`dataSourceID`),
   CONSTRAINT `FK_openhierarchy_foreground_modules_openhierarchy_data_sources` FOREIGN KEY (`dataSourceID`) REFERENCES `openhierarchy_data_sources` (`dataSourceID`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `FK_openhierarchy_foreground_modules_openhierarchy_sections` FOREIGN KEY (`sectionID`) REFERENCES `openhierarchy_sections` (`sectionID`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table openhierarchy-system.openhierarchy_foreground_modules: ~20 rows (approximately)
 DELETE FROM `openhierarchy_foreground_modules`;
@@ -350,8 +380,24 @@ INSERT INTO `openhierarchy_foreground_modules` (`moduleID`, `classname`, `name`,
 	(17, 'se.unlogic.hierarchy.foregroundmodules.issuetracker.PrivilegeAdminModule', 'Administrera rättigheter i Ärendehanteringen', 'privilegeadminmodule', 'Administrera rättigheter i Ärendehanteringen', 'PrivilegeAdminModule.xsl', 'Classpath', 0, 0, 1, 0, 1, 2, 1, 'staticcontent', NULL),
 	(18, 'se.unlogic.hierarchy.foregroundmodules.mailsenders.persisting.PersistingMailSender', 'E-post kö', 'mailsender', 'Modul för utskick av e-post', NULL, NULL, 0, 0, 1, 0, 1, 2, NULL, NULL, NULL),
 	(19, 'se.unlogic.hierarchy.foregroundmodules.mailsenders.dummy.DummyEmailSenderModule', 'Dummy email sender', 'dummyemailsender', 'Receives last email sent', NULL, NULL, 0, 0, 1, 0, 1, 2, NULL, NULL, NULL),
-	(20, 'se.unlogic.hierarchy.foregroundmodules.groupproviders.SimpleGroupProviderModule', 'SimpleGroupProvider', 'simplegroupprovider', 'A group provider for simple groups', NULL, NULL, 0, 0, 1, 1, 0, 1, NULL, NULL, NULL);
+	(20, 'se.unlogic.hierarchy.foregroundmodules.groupproviders.SimpleGroupProviderModule', 'SimpleGroupProvider', 'simplegroupprovider', 'A group provider for simple groups', NULL, NULL, 0, 0, 1, 1, 0, 1, NULL, NULL, NULL),
+	(21, 'com.projecttemplate.modules.example.ExampleModule', 'Example page', 'index', 'Example page...', 'ExampleModuleTemplate.xsl', 'Classpath', 0, 1, 0, 1, 1, 1, NULL, 'staticcontent', NULL);
 /*!40000 ALTER TABLE `openhierarchy_foreground_modules` ENABLE KEYS */;
+
+
+-- Dumping structure for table openhierarchy-system.openhierarchy_foreground_module_attributes
+CREATE TABLE IF NOT EXISTS `openhierarchy_foreground_module_attributes` (
+  `moduleID` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `value` varchar(4096) CHARACTER SET latin1 NOT NULL,
+  PRIMARY KEY (`moduleID`,`name`),
+  CONSTRAINT `FK_openhierarchy_foreground_module_attributes_1` FOREIGN KEY (`moduleID`) REFERENCES `openhierarchy_foreground_modules` (`moduleID`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Dumping data for table openhierarchy-system.openhierarchy_foreground_module_attributes: ~0 rows (approximately)
+DELETE FROM `openhierarchy_foreground_module_attributes`;
+/*!40000 ALTER TABLE `openhierarchy_foreground_module_attributes` DISABLE KEYS */;
+/*!40000 ALTER TABLE `openhierarchy_foreground_module_attributes` ENABLE KEYS */;
 
 
 -- Dumping structure for table openhierarchy-system.openhierarchy_foreground_module_groups
@@ -378,7 +424,7 @@ CREATE TABLE IF NOT EXISTS `openhierarchy_foreground_module_settings` (
   PRIMARY KEY (`counter`),
   KEY `FK_modulesettings_1` (`moduleID`),
   CONSTRAINT `FK_openhierarchy_foreground_module_settings_openhierarchy` FOREIGN KEY (`moduleID`) REFERENCES `openhierarchy_foreground_modules` (`moduleID`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2480 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2482 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table openhierarchy-system.openhierarchy_foreground_module_settings: ~37 rows (approximately)
 DELETE FROM `openhierarchy_foreground_module_settings`;
@@ -420,7 +466,8 @@ INSERT INTO `openhierarchy_foreground_module_settings` (`counter`, `moduleID`, `
 	(2461, 3, 'allowAdminAdministration', 'true'),
 	(2462, 3, 'allowGroupAdministration', 'true'),
 	(2463, 3, 'filteringField', 'FIRSTNAME'),
-	(2464, 3, 'menuItemType', 'MENUITEM');
+	(2464, 3, 'menuItemType', 'MENUITEM'),
+	(2481, 21, 'menuItemType', 'MENUITEM');
 /*!40000 ALTER TABLE `openhierarchy_foreground_module_settings` ENABLE KEYS */;
 
 
@@ -432,7 +479,7 @@ CREATE TABLE IF NOT EXISTS `openhierarchy_foreground_module_users` (
   CONSTRAINT `FK_openhierarchy_foreground_module_users_openhierarchy` FOREIGN KEY (`moduleID`) REFERENCES `openhierarchy_foreground_modules` (`moduleID`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
--- Dumping data for table openhierarchy-system.openhierarchy_foreground_module_users: ~1 rows (approximately)
+-- Dumping data for table openhierarchy-system.openhierarchy_foreground_module_users: ~0 rows (approximately)
 DELETE FROM `openhierarchy_foreground_module_users`;
 /*!40000 ALTER TABLE `openhierarchy_foreground_module_users` DISABLE KEYS */;
 INSERT INTO `openhierarchy_foreground_module_users` (`moduleID`, `userID`) VALUES
@@ -458,9 +505,9 @@ CREATE TABLE IF NOT EXISTS `openhierarchy_menu_index` (
   CONSTRAINT `FK_openhierarchy_menu_index_openhierarchy_sections` FOREIGN KEY (`sectionID`) REFERENCES `openhierarchy_sections` (`sectionID`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `FK_openhierarchy_menu_index_openhierarchy_sections_2` FOREIGN KEY (`subSectionID`) REFERENCES `openhierarchy_sections` (`sectionID`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `FK_openhierarchy_menu_index_openhierarchy_virtual_menu_items` FOREIGN KEY (`menuItemID`) REFERENCES `openhierarchy_virtual_menu_items` (`menuItemID`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=501 DEFAULT CHARSET=latin1 COMMENT='InnoDB free: 206848 kB; (`sectionID`) REFER `foraldramotet-o';
+) ENGINE=InnoDB AUTO_INCREMENT=502 DEFAULT CHARSET=latin1 COMMENT='InnoDB free: 206848 kB; (`sectionID`) REFER `foraldramotet-o';
 
--- Dumping data for table openhierarchy-system.openhierarchy_menu_index: ~44 rows (approximately)
+-- Dumping data for table openhierarchy-system.openhierarchy_menu_index: ~45 rows (approximately)
 DELETE FROM `openhierarchy_menu_index`;
 /*!40000 ALTER TABLE `openhierarchy_menu_index` DISABLE KEYS */;
 INSERT INTO `openhierarchy_menu_index` (`menuIndexID`, `sectionID`, `menuIndex`, `moduleID`, `uniqueID`, `subSectionID`, `menuItemID`) VALUES
@@ -508,7 +555,8 @@ INSERT INTO `openhierarchy_menu_index` (`menuIndexID`, `sectionID`, `menuIndex`,
 	(489, 1, 39, NULL, NULL, NULL, 55),
 	(490, 2, 65, NULL, NULL, NULL, 55),
 	(492, 1, 45, NULL, NULL, NULL, 56),
-	(500, 1, 48, 9, '1', NULL, NULL);
+	(500, 1, 48, 9, '1', NULL, NULL),
+	(501, 1, 49, 21, '21', NULL, NULL);
 /*!40000 ALTER TABLE `openhierarchy_menu_index` ENABLE KEYS */;
 
 
@@ -537,9 +585,24 @@ CREATE TABLE IF NOT EXISTS `openhierarchy_sections` (
 DELETE FROM `openhierarchy_sections`;
 /*!40000 ALTER TABLE `openhierarchy_sections` DISABLE KEYS */;
 INSERT INTO `openhierarchy_sections` (`sectionID`, `parentSectionID`, `alias`, `enabled`, `anonymousAccess`, `userAccess`, `adminAccess`, `visibleInMenu`, `breadCrumb`, `name`, `description`, `anonymousDefaultURI`, `userDefaultURI`, `requiredProtocol`) VALUES
-	(1, NULL, 'firstpage', 1, 1, 1, 1, 1, 1, 'Förstasidan', 'Förstasidan...', '/login', '/page/firstpage', NULL),
+	(1, NULL, 'firstpage', 1, 1, 1, 1, 1, 1, 'Förstasidan', 'Förstasidan...', '/login', '/index', NULL),
 	(2, 1, 'sysadmin', 1, 0, 0, 1, 1, 1, 'Systemadmin', 'System administration', '/useradmin', '/useradmin', NULL);
 /*!40000 ALTER TABLE `openhierarchy_sections` ENABLE KEYS */;
+
+
+-- Dumping structure for table openhierarchy-system.openhierarchy_section_attributes
+CREATE TABLE IF NOT EXISTS `openhierarchy_section_attributes` (
+  `sectionID` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `value` varchar(4096) CHARACTER SET latin1 NOT NULL,
+  PRIMARY KEY (`sectionID`,`name`),
+  CONSTRAINT `FK_openhierarchy_section_attributes_1` FOREIGN KEY (`sectionID`) REFERENCES `openhierarchy_sections` (`sectionID`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Dumping data for table openhierarchy-system.openhierarchy_section_attributes: ~0 rows (approximately)
+DELETE FROM `openhierarchy_section_attributes`;
+/*!40000 ALTER TABLE `openhierarchy_section_attributes` DISABLE KEYS */;
+/*!40000 ALTER TABLE `openhierarchy_section_attributes` ENABLE KEYS */;
 
 
 -- Dumping structure for table openhierarchy-system.openhierarchy_section_groups
@@ -586,7 +649,7 @@ CREATE TABLE IF NOT EXISTS `openhierarchy_virtual_menu_items` (
   CONSTRAINT `FK_menuadmin_1` FOREIGN KEY (`sectionID`) REFERENCES `openhierarchy_sections` (`sectionID`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=latin1;
 
--- Dumping data for table openhierarchy-system.openhierarchy_virtual_menu_items: ~3 rows (approximately)
+-- Dumping data for table openhierarchy-system.openhierarchy_virtual_menu_items: ~2 rows (approximately)
 DELETE FROM `openhierarchy_virtual_menu_items`;
 /*!40000 ALTER TABLE `openhierarchy_virtual_menu_items` DISABLE KEYS */;
 INSERT INTO `openhierarchy_virtual_menu_items` (`menuItemID`, `itemtype`, `name`, `description`, `url`, `anonymousAccess`, `userAccess`, `adminAccess`, `sectionID`) VALUES
@@ -643,11 +706,9 @@ CREATE TABLE IF NOT EXISTS `pages` (
   CONSTRAINT `FK_pages_1` FOREIGN KEY (`sectionID`) REFERENCES `openhierarchy_sections` (`sectionID`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1 COMMENT='InnoDB free: 191488 kB; (`sectionID`) REFER `fkdb-system/sec';
 
--- Dumping data for table openhierarchy-system.pages: ~1 rows (approximately)
+-- Dumping data for table openhierarchy-system.pages: ~0 rows (approximately)
 DELETE FROM `pages`;
 /*!40000 ALTER TABLE `pages` DISABLE KEYS */;
-INSERT INTO `pages` (`pageID`, `name`, `description`, `text`, `enabled`, `visibleInMenu`, `anonymousAccess`, `userAccess`, `adminAccess`, `sectionID`, `alias`, `breadCrumb`) VALUES
-	(1, 'Förstasidan', 'Förstasidan', '<h1>V&auml;lkommen till ProjectTemplate</h1>', '1', 1, 0, 1, 1, 1, 'firstpage', 0);
 /*!40000 ALTER TABLE `pages` ENABLE KEYS */;
 
 
@@ -758,11 +819,11 @@ CREATE TABLE IF NOT EXISTS `simple_users` (
   PRIMARY KEY (`userID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
--- Dumping data for table openhierarchy-system.simple_users: ~1 rows (approximately)
+-- Dumping data for table openhierarchy-system.simple_users: ~0 rows (approximately)
 DELETE FROM `simple_users`;
 /*!40000 ALTER TABLE `simple_users` DISABLE KEYS */;
 INSERT INTO `simple_users` (`userID`, `username`, `password`, `firstname`, `lastname`, `email`, `admin`, `enabled`, `added`, `lastlogin`, `language`, `preferedDesign`) VALUES
-	(1, 'admin', '*4ACFE3202A5FF5CF467898FC58AAB1D615029441', 'Admin', 'Adminsson', 'admin@admin.com', 1, 1, '2014-10-15 21:27:00', '2014-10-15 22:23:49', NULL, NULL);
+	(1, 'admin', '*4ACFE3202A5FF5CF467898FC58AAB1D615029441', 'Admin', 'Adminsson', 'admin@admin.com', 1, 1, '2014-10-15 21:27:00', '2015-07-18 00:55:37', NULL, NULL);
 /*!40000 ALTER TABLE `simple_users` ENABLE KEYS */;
 
 
@@ -772,6 +833,7 @@ CREATE TABLE IF NOT EXISTS `simple_user_attributes` (
   `name` varchar(255) NOT NULL,
   `value` varchar(4096) NOT NULL,
   PRIMARY KEY (`userID`,`name`),
+  KEY `Index_2` (`name`),
   CONSTRAINT `FK_simple_user_attributes_simple_users` FOREIGN KEY (`userID`) REFERENCES `simple_users` (`userID`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -808,10 +870,10 @@ CREATE TABLE IF NOT EXISTS `table_versions` (
 DELETE FROM `table_versions`;
 /*!40000 ALTER TABLE `table_versions` DISABLE KEYS */;
 INSERT INTO `table_versions` (`tableGroupName`, `version`) VALUES
-	('se.unlogic.hierarchy.core.daos.implementations.mysql.MySQLCoreDAOFactory', 31),
+	('se.unlogic.hierarchy.core.daos.implementations.mysql.MySQLCoreDAOFactory', 34),
 	('se.unlogic.hierarchy.foregroundmodules.groupproviders.SimpleGroupProviderModule', 3),
 	('se.unlogic.hierarchy.foregroundmodules.pagemodules.daos.annotated.AnnotatedPageDAOFactory', 3),
-	('se.unlogic.hierarchy.foregroundmodules.userproviders.SimpleUserProviderModule', 4);
+	('se.unlogic.hierarchy.foregroundmodules.userproviders.SimpleUserProviderModule', 5);
 /*!40000 ALTER TABLE `table_versions` ENABLE KEYS */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;

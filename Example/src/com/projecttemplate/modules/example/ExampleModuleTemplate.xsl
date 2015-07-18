@@ -3,21 +3,18 @@
   <xsl:output method="html" encoding="utf-8" indent="yes" />
   
   <xsl:template match="document">
-    <h1>Example Module!</h1>
+  
+  	<link rel="stylesheet" href="{/document/requestinfo/contextpath}/static/f/{/document/module/sectionID}/{/document/module/moduleID}/css/main.css"></link>
+  
+    <!-- module path -->
+    <input id="modulePath" type="hidden" value="{/document/requestinfo/currentURI}/{/document/module/alias}/"></input>
     
-    <table>
-      <tr>
-        <th>Id</th>
-        <th>Name</th>
-      </tr>
-      <xsl:apply-templates name="Examples/Example" />
-    </table>
+    <h1>Congratulations!</h1>
+    <p>This is an example mopdule</p>
+    <p class="result">Loading...</p>
+    
+    <script type="text/javascript" src="{/document/requestinfo/contextpath}/static/f/{/document/module/sectionID}/{/document/module/moduleID}/js/main.js"></script>
+    
   </xsl:template>
   
-  <xsl:template match="Examples/Example">
-    <tr>
-      <td><xsl:value-of select="id" /></td>
-      <td><xsl:value-of select="name" /></td>
-    </tr>
-  </xsl:template>
 </xsl:stylesheet>

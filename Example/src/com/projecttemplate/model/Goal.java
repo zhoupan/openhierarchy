@@ -13,8 +13,19 @@ public class Goal {
 	@GeneratedValue
 	private Long id;
 	
-	@Range(min=1, max=120, message="Antal minuter måste vara mellan 1 och 120")
+	private String type;
+	
+	@Range(min=1, max=120, message="Number of minutes must be between 1 and 120")
 	private int minutes;
+	
+	public Goal() {
+		// Default constructor
+	}
+
+	public Goal(String type, int minutes) {
+		setType(type);
+		setMinutes(minutes);
+	}
 
 	public int getMinutes() {
 		return minutes;
@@ -22,5 +33,13 @@ public class Goal {
 
 	public void setMinutes(int minutes) {
 		this.minutes = minutes;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 }
