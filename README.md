@@ -5,6 +5,7 @@ Read more about OpenHierarchy - http://openhierarchy.org/
 OpenHierarchy Template project - Configured with Maven and the Spring Framework
 
 * OpenHierarchy 1.2.5
+* Spring 4.1.7
 * Java 1.8, some projects still use 1.6
 * Tomcat 8
 
