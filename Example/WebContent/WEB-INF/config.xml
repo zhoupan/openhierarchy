@@ -14,7 +14,7 @@
 		<!-- The settings below are only necessary in SystemManaged mode-->
 		<Driver>com.mysql.jdbc.Driver</Driver>
 		<Username>root</Username>
-		<Password>root</Password>
+		<Password>123456</Password>
 		<LogAbandoned>true</LogAbandoned>
 		<RemoveAbandoned>true</RemoveAbandoned>
 		<RemoveAbandonedTimeout>30</RemoveAbandonedTimeout>

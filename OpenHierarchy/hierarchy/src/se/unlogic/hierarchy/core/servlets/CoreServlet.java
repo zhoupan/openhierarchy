@@ -250,6 +250,7 @@ public class CoreServlet extends BaseServlet implements FullSystemInterface {
 
 					throw new RuntimeException("No or invalid default language specified in config.xml");
 				}
+				log.info("Encoding:"+ this.encoding+ " DefaultLanguage:"+this.defaultLanguage);
 
 				this.xsltCacheHandler = new CoreXSLTCacheHandler(config, this.defaultLanguage, getApplicationFileSystemPath());
 
